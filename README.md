@@ -87,7 +87,7 @@ $ ./headless-video-publisher -v video.yuv -a audio.pcm -k apikey -s sessionId -t
 
 ### Preparing the audio and video input files.
 
-This sample accepts video as raw YUV420P frames with frame size of 1280x720 and audio as raw 16-bit 16KHz PCM audio. 
+This sample accepts video as raw YUV420P frames with frame size of 1280x720@30fps and audio as raw 16-bit 16KHz PCM audio. 
 This section explains how you can convert any mp4 file to be used by this sample.
 
 Please note that raw video occupies a lot of space (10 seconds clip can be around 400MB). So first you should cut your mp4 to a 10-15 seconds clip.
@@ -96,15 +96,20 @@ Here we use ffmpeg to cut the file to 10 seconds starting from the beginning
 ```bash
 ffmpeg -ss 00:00:00 -i input.mp4 -to 00:00:10 -c copy output.mp4
 ```
+Most videos found on the internet are at 60fps. convert to 30fps 
+
+```bash
+ffmpeg -i output.mp4 -filter:v fps=30 output30fps.mp4
+```
 
 Next, convert this clip to raw YUV frames
 ```bash
-ffmpeg -i output.mp4 video.yuv
+ffmpeg -i output30fps.mp4 video.yuv
 ```
 Now, create a raw PCM audio clip from the same mp4 file
 
 ```bash
-ffmpeg -y  -i output.mp4  -acodec pcm_s16le -f s16le -ac 1 -ar 16000 audio.pcm
+ffmpeg -y  -i output30fps.mp4 -acodec pcm_s16le -f s16le -ac 1 -ar 16000 audio.pcm
 ```
 
 
