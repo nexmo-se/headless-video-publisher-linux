@@ -79,6 +79,7 @@ $ make
 ```
 
 When the `headless-video-publisher` binary is built, run it:
+You can either publish only video, only audio or both.
 
 ```bash
 $ ./headless-video-publisher -v video.yuv -a audio.pcm -k apikey -s sessionId -t token
