@@ -6,6 +6,8 @@ in to the video session.
 You will need a valid [Vonage Video API](https://tokbox.com/developer/)
 account to build this app. (Note that OpenTok is now the Vonage Video API.)
 
+If you are looking for a Puppeteer/NodeJS based headless publisher - https://github.com/nexmo-se/headless-video-tester
+
 ## Setting up your environment
 
 ### OpenTok SDK
