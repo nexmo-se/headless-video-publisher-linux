@@ -78,7 +78,7 @@ Use `make` to build the code:
 $ make
 ```
 
-When the `vonage_custom_renderer` binary is built, run it:
+When the `headless-video-publisher` binary is built, run it:
 
 ```bash
 $ ./headless-video-publisher -v video.yuv -a audio.pcm -k apikey -s sessionId -t token
@@ -87,7 +87,7 @@ $ ./headless-video-publisher -v video.yuv -a audio.pcm -k apikey -s sessionId -t
 ### Preparing the audio and video input files.
 
 This sample accepts video as raw YUV420P frames with frame size of 1280x720 and audio as raw 16-bit 16KHz PCM audio. 
-This section explain how you can convert any mp4 file to be used by this sample.
+This section explains how you can convert any mp4 file to be used by this sample.
 
 Please note that raw video occupies a lot of space (10 seconds clip can be around 400MB). So first you should cut your mp4 to a 10-15 seconds clip.
 
